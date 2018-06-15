@@ -12,7 +12,36 @@
 
 <body>
 
-    
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="forms">
+                <h2 class="title1">Ejercicio 12</h2>
+                <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                    <div class="form-title">
+                        <h4>Ingrese los datos :</h4>
+                    </div>
+                    <div class="form-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="numeroAcertar">Numero Acertar</label>
+                                <input type="number" class="form-control" id="num" name="numeroAcertar" placeholder="Introduzca el numero que crea correcto"
+                                    required>
+                            </div>
+                            <button type="button" class="btn btn-default" id="btnCalcular">Calcular</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Resultado</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="divResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -142,6 +171,23 @@
                 $(this).removeClass("ui-state-hover");
             }
         );
+    </script>
+    <script src="js/ejer_12.js" charset="utf-8"></script>
+    <script>
+        $(document).ready(function () {
+
+            var n = Math.round(Math.random() * 100);
+
+            console.log(n);
+
+            $("#btnCalcular").click(function () {
+
+                var num = $("#num").val();
+
+                var resultado = adivinar(num, n);
+                $("#divResult").html(resultado.secreto);
+            });
+        });
     </script>
 
 </body>

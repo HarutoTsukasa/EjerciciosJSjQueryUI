@@ -12,7 +12,40 @@
 
 <body>
 
-    
+    <div id="accordion">
+        <h3>Descripcion</h3>
+        <div>Leer un número hasta que este sea diferente de 0 (cero), y desplegar continuamente su suma y el número de datos solicitados</div>
+        <h3>Formulario</h3>
+        <div>
+            <div class="form-body">
+                <form>
+                    <fieldset>
+                        <legend>digite los numeros :</legend>
+                        <div class="form-group">
+                            <label for="numero">numero</label>
+                            </br>
+                            <input type="number" id="numero" name="numero" value="">
+                            </br>
+                            </br>
+                        </div>
+                    </fieldset>
+                    <button type="button" class="btn btn-default" id="btnCalcular">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Resultado</h3>
+        </div>
+        <div class="panel-body">
+            <div id="divResult"></div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -142,6 +175,28 @@
                 $(this).removeClass("ui-state-hover");
             }
         );
+    </script>
+    <script src="js/ejer_14.js" charset="utf-8"></script>
+
+    <script>
+
+        $("#accordion").accordion({
+            active: 2,
+            animate: 200,
+            collapsible: true,
+            heightStyle: "content"
+        });
+
+        $("#btnCalcular").click(function () {
+            var numero = $("#numero").val();
+
+            if (numero != 0) {
+                $("#divResult").html(suma(numero));
+            } else {
+                btnCalcular.disabled = true;
+            }
+
+        });
     </script>
 
 </body>

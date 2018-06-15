@@ -12,7 +12,37 @@
 
 <body>
 
-    
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="forms">
+                <h2 class="title1">Ejercicio 08</h2>
+                <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                    <div class="form-title">
+                        <h4>Ingrese los el numero de millas a convertir :</h4>
+                    </div>
+                    <div class="form-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="numero">Millas</label>
+                                </br>
+                                <input type="number" id="millas" name="numero" value="">
+                                </br>
+                            </div>
+                            <button type="button" class="btn btn-default" id="btnCalcular">Calcular</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Resultado</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="divResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -142,6 +172,16 @@
                 $(this).removeClass("ui-state-hover");
             }
         );
+    </script>
+    <script src="js/ejer_8.js" charset="utf-8"></script>
+    <script>
+        $("#btnCalcular").click(function () {
+
+            var millas = $("#millas").val();
+
+            $("#divResult").html(conversiones(millas));
+            
+        });
     </script>
 
 </body>
