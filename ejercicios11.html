@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EjerciciosJS11</title>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="forms">
+                <h2 class="title1">Ejercicio 11</h2>
+                <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                    <div class="form-title">
+                        <h4>Ingrese las notas de 5 Materias:</h4>
+                    </div>
+                    <div class="form-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="edad">Materia</label>
+                                <br>
+                                <input type="text" class="form-control" id="materia" name="materia" placeholder="Ej: Calculo" value="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edad">Nota 1...10</label>
+                                <br>
+                                <input type="number" class="form-control" id="nota" name="nota" placeholder="0000" value="" required>
+                            </div>
+                            <br>
+                            <button type="button" class="btn btn-default" id="btnIngresar">Ingresar Materia(s)</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-default" id="btnCalcular">Nota Final</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Resultado:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <table id="filas" border="1">
+                                <tr>
+                                    <th>Materia</th>
+                                    <th>Nota</th>
+                                </tr>
+                            </table>
+                            <br>
+                        </div>
+                        <div id="divResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $("#accordion").accordion();
+
+
+
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $("#autocomplete").autocomplete({
+            source: availableTags
+        });
+
+
+
+        $("#button").button();
+        $("#button-icon").button({
+            icon: "ui-icon-gear",
+            showLabel: false
+        });
+
+
+
+        $("#radioset").buttonset();
+
+
+
+        $("#controlgroup").controlgroup();
+
+
+
+        $("#tabs").tabs();
+
+
+
+        $("#dialog").dialog({
+            autoOpen: false,
+            width: 400,
+            buttons: [
+                {
+                    text: "Ok",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                },
+                {
+                    text: "Cancel",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+
+        // Link to open the dialog
+        $("#dialog-link").click(function (event) {
+            $("#dialog").dialog("open");
+            event.preventDefault();
+        });
+
+
+
+        $("#datepicker").datepicker({
+            inline: true
+        });
+
+
+
+        $("#slider").slider({
+            range: true,
+            values: [17, 67]
+        });
+
+
+
+        $("#progressbar").progressbar({
+            value: 20
+        });
+
+
+
+        $("#spinner").spinner();
+
+
+
+        $("#menu").menu();
+
+
+
+        $("#tooltip").tooltip();
+
+
+
+        $("#selectmenu").selectmenu();
+
+
+        // Hover states on the static widgets
+        $("#dialog-link, #icons li").hover(
+            function () {
+                $(this).addClass("ui-state-hover");
+            },
+            function () {
+                $(this).removeClass("ui-state-hover");
+            }
+        );
+    </script>
+    <script src="js/ejer_11.js" charset="utf-8"></script>
+    <script>
+
+        $("#btnIngresar").click(function () {
+
+            var strFila = obtenerDatos($("#materia").val(), $("#nota").val());
+            $("#filas").append(strFila);
+
+        });
+
+        $("#btnCalcular").click(function () {
+
+
+            $("#divResult").html(calcularNotas());
+
+        });
+
+    </script>
+
+</body>
+
+</html>

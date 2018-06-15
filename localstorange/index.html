@@ -1,0 +1,125 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Precise Contact Form Responsive Widget Template :: w3layouts</title>
+	<!-- Meta Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Precise Contact Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs Sign up Web Templates, 
+ Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+	<!--// Meta Tags -->
+	<!-- Stylesheet -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="js/jquery-confirm-v3.3.0/css/jquery-confirm.css">
+	<!--// Stylesheet -->
+	<!--fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
+	<!--//fonts-->
+</head>
+
+<body>
+	<!--background-->
+	<!-- Contact form -->
+	<h1>Registro de Usuarios</h1>
+	<div class="contact-main-w3-agile">
+		<div class="top-section-wthree">
+			<h2 class="sub-title">Información Personal</h2>
+			<p>Por favor rellene los siguientes campos.</p>
+		</div>
+		<div class="form-agileits-w3layouts">
+			<form id="formUsuarios" action="#" method="post">
+				<div class="form-w3layouts-fields">
+					<input type="text" name="Nombres" id="Nombres" placeholder="Nombres" required="" />
+				</div>
+				<div class="form-w3layouts-fields">
+					<input type="email" name="Correo" id="Correo" placeholder="Correo" required="" />
+				</div>
+				<div class="form-w3layouts-fields">
+					<input type="text" name="Phone" id="Telefono" placeholder="Telefono" required="" />
+				</div>
+				<div class="form-w3layouts-fields">
+					<textarea name="Message" id="Mensaje" placeholder="Mensaje" required=""></textarea>
+				</div>
+				<input class="button" type="button" name="Guardar" id="Guardar" value="Guardar">
+				<input class="button" onclick="location.href = 'administrar.html';" type="button" value="Administrar">
+			</form>
+		</div>
+		<!-- // Contact form -->
+	</div>
+	<div class="clear"></div>
+	<div class="copy-right-agileinfo">
+		<p>© 2018 Precise Contact Form. All Rights Reserved | Design by
+			<a href="http://w3layouts.com/"> W3layouts</a>
+		</p>
+	</div>
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="js/jquery-confirm-v3.3.0/js/jquery-confirm.js" type="text/javascript"></script>
+	<script src="js/dbpersists.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function (){
+			
+			var ArrUsuarios = cargarLocalStorange('users'); //Creamos un array para almacenar los usuarios
+			console.log(ArrUsuarios);
+
+		    $('#Guardar').click(function(){        
+		        /* Recolectar los datos del formulario */        
+		        var nombres = $("#Nombres").val();
+		        var correo = $("#Correo").val();
+		        var telefono = $("#Telefono").val();
+		        var mensaje = $("#Mensaje").val();
+
+		        /* Creo un objeto de usuario */
+		        var usuario = {
+		        	nombres: nombres, 
+		        	correo: correo, 
+		        	telefono: parseInt(telefono), 
+		        	mensaje: mensaje
+		        };
+				
+				ArrUsuarios.push(usuario); //Agregamos el objeto usuario al array.
+				guardarLocalStorange ('users', ArrUsuarios);
+
+				$.confirm({
+				    title: 'Guadado Correcto!',
+				    content: 'El usuario ha sido almacenado correctamente',
+				    type: 'green',
+				    typeAnimated: true,
+				    columnClass: 'col-md-6',
+				    buttons: {
+				        succes: {
+				            text: 'Aceptar',
+				            btnClass: 'btn-green',
+				            action: function () {
+				        		$('#formUsuarios')[0].reset();//Limpiar el formulario
+				        	}
+				        },
+				        administrar: {
+				            text: 'Administrar',
+				            btnClass: 'btn-green',
+				            action: function () {
+				            	location.href = "administrar.html";
+				        	}
+				        },
+				    }
+				});
+
+		    });
+
+
+		});
+
+	</script>
+
+	<!--//background-->
+</body>
+
+</html>

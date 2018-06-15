@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EjerciciosJS5</title>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="forms">
+                <h2 class="title1">Ejercicio 05</h2>
+                <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                    <div class="form-title">
+                        <h4>Ingreso de alumnos :</h4>
+                    </div>
+
+                    <!-- Accordion -->
+                    <div id="accordion">
+                        <h3>Descripcion</h3>
+                        <div>A05: Dadas las edades y alturas de 5 alumnos, mostrar la edad y la estatura media, la cantidad de
+                            alumnos mayores de 18 años, y la cantidad de alumnos que miden más de 1.75.</div>
+                        <h3>Formulario</h3>
+                        <div>
+                            <div class="form-body">
+                                <form>
+                                    <fieldset>
+                                        <legend>Datos del Alumno:</legend>
+                                        <div class="form-group">
+                                            <label for="edad">Edad</label>
+                                            </br>
+                                            <input type="number" id="edad" name="edad" value="">
+                                            </br>
+                                            </br>
+                                            <label for="estatura">Estatura</label>
+                                            </br>
+                                            <input type="number" id="estatura" name="estatura" value="">
+                                            </br>
+                                        </div>
+                                    </fieldset>
+                                    <button type="button" class="btn btn-default" id="btnCalcular">Agregar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Resultado</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="divResult">
+                            <table id="filas" border="1">
+                                <tr>
+                                    <th>Edad</th>
+                                    <th>Altura</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $("#accordion").accordion({
+            collapsible: true,
+        });
+
+
+
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $("#autocomplete").autocomplete({
+            source: availableTags
+        });
+
+
+
+        $("#button").button();
+        $("#button-icon").button({
+            icon: "ui-icon-gear",
+            showLabel: false
+        });
+
+
+
+        $("#radioset").buttonset();
+
+
+
+        $("#controlgroup").controlgroup();
+
+
+
+        $("#tabs").tabs();
+
+
+
+        $("#dialog").dialog({
+            autoOpen: false,
+            width: 400,
+            buttons: [
+                {
+                    text: "Ok",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                },
+                {
+                    text: "Cancel",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+
+        // Link to open the dialog
+        $("#dialog-link").click(function (event) {
+            $("#dialog").dialog("open");
+            event.preventDefault();
+        });
+
+
+
+        $("#datepicker").datepicker({
+            inline: true
+        });
+
+
+
+        $("#slider").slider({
+            range: true,
+            values: [17, 67]
+        });
+
+
+
+        $("#progressbar").progressbar({
+            value: 20
+        });
+
+
+
+        $("#spinner").spinner();
+
+
+
+        $("#menu").menu();
+
+
+
+        $("#tooltip").tooltip();
+
+
+
+        $("#selectmenu").selectmenu();
+
+
+        // Hover states on the static widgets
+        $("#dialog-link, #icons li").hover(
+            function () {
+                $(this).addClass("ui-state-hover");
+            },
+            function () {
+                $(this).removeClass("ui-state-hover");
+            }
+        );
+    </script>
+    <script src="js/ejer_5.js" charset="utf-8"></script>
+    <script>        
+
+        $("#btnCalcular").click(function () {
+            if (arrAlumnos["Edad"].length != 5) {
+                var strFila = obtenerDatos($("#edad").val(), $("#estatura").val());
+                $("#filas").append(strFila);
+            } else {
+                $("#divResult").html(calcularDatos());
+            }
+        });
+    </script>
+</body>
+
+</html>

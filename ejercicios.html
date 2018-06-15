@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EjerciciosJS1</title>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="forms">
+                <h2 class="title1">Ejercicio 01</h2>
+                <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                    <div class="form-title">
+                        <h4>Ingrese los datos :</h4>
+                    </div>
+                    <div class="form-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="varA">Variable A</label>
+                                <input type="number" class="form-control" id="varA" name="varA" placeholder="2" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="varB">Variable B</label>
+                                <input type="number" class="form-control" id="varB" name="varB" placeholder="2" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="varC">Variable C</label>
+                                <input type="number" class="form-control" id="varC" name="varC" placeholder="2" required>
+                            </div>
+                            <button type="button" class="btn btn-default" onclick="btnSend();">Calcular</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Resultado</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="divResult1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $("#accordion").accordion();
+
+
+
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $("#autocomplete").autocomplete({
+            source: availableTags
+        });
+
+
+
+        $("#button").button();
+        $("#button-icon").button({
+            icon: "ui-icon-gear",
+            showLabel: false
+        });
+
+
+
+        $("#radioset").buttonset();
+
+
+
+        $("#controlgroup").controlgroup();
+
+
+
+        $("#tabs").tabs();
+
+
+
+        $("#dialog").dialog({
+            autoOpen: false,
+            width: 400,
+            buttons: [
+                {
+                    text: "Ok",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                },
+                {
+                    text: "Cancel",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+
+        // Link to open the dialog
+        $("#dialog-link").click(function (event) {
+            $("#dialog").dialog("open");
+            event.preventDefault();
+        });
+
+
+
+        $("#datepicker").datepicker({
+            inline: true
+        });
+
+
+
+        $("#slider").slider({
+            range: true,
+            values: [17, 67]
+        });
+
+
+
+        $("#progressbar").progressbar({
+            value: 20
+        });
+
+
+
+        $("#spinner").spinner();
+
+
+
+        $("#menu").menu();
+
+
+
+        $("#tooltip").tooltip();
+
+
+
+        $("#selectmenu").selectmenu();
+
+
+        // Hover states on the static widgets
+        $("#dialog-link, #icons li").hover(
+            function () {
+                $(this).addClass("ui-state-hover");
+            },
+            function () {
+                $(this).removeClass("ui-state-hover");
+            }
+        );
+    </script>
+    <script src="js/ejer_01.js" charset="utf-8"></script>
+    <script>
+
+        function btnSend() {
+            var a = document.getElementById("varA").value;
+            var b = document.getElementById("varB").value;
+            var c = document.getElementById("varC").value;
+
+            var result = equacionSegundo(a, b, c);
+
+            document.getElementById("divResult1").innerHTML = ("X1: " + result.x1 + " X2: " + result.x2);
+        }
+
+    </script>
+</body>
+
+</html>
